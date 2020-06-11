@@ -20,9 +20,11 @@ curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_1
 $ret = curl_exec($ch);
 $end_time = time();
 
-echo 'URL: ' . $url . PHP_EOL;
-echo 'HTTP Code: ' . curl_getinfo($ch, CURLINFO_HTTP_CODE) . PHP_EOL;
-echo 'Length: ' . strlen($ret) . ' bytes' . PHP_EOL;
-echo 'Duration: ' . ($end_time - $start_time) . ' sec' . PHP_EOL;
+$line_break = PHP_SAPI === 'cli' ? PHP_EOL : '<br/>' . PHP_EOL;
+
+echo 'URL: ' . $url . $line_break;
+echo 'HTTP Code: ' . curl_getinfo($ch, CURLINFO_HTTP_CODE) . $line_break;
+echo 'Length: ' . strlen($ret) . ' bytes' . $line_break;
+echo 'Duration: ' . ($end_time - $start_time) . ' sec' . $line_break;
 
 curl_close($ch);
