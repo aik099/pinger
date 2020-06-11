@@ -1,6 +1,7 @@
 <?php
 
 if (!array_key_exists('PING_URL', $_SERVER) || empty($_SERVER['PING_URL'])) {
+    echo 'Please specify "PING_URL" environment variable to continue.';
     exit;
 }
 
